@@ -10,17 +10,53 @@ export default function Navbar() {
   };
 
   return (
-    <nav style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
-      <Link to="/listings" style={{ marginRight: '10px' }}>Annonces</Link>
-      {token && <Link to="/create" style={{ marginRight: '10px' }}>Créer</Link>}
-      {!token ? (
-        <>
-          <Link to="/login" style={{ marginRight: '10px' }}>Connexion</Link>
-          <Link to="/register">Inscription</Link>
-        </>
-      ) : (
-        <button onClick={logout}>Déconnexion</button>
-      )}
+    <nav style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '15px 30px',
+      backgroundColor: '#ffffff',
+      borderBottom: '2px solid #e0e0e0',
+      boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
+      position: 'sticky',
+      top: 0,
+      zIndex: 1000
+    }}>
+      <div>
+        <Link to="/listings" style={linkStyle}>🏠 Annonces</Link>
+        {token && <Link to="/create" style={linkStyle}>➕ Créer</Link>}
+      </div>
+      <div>
+        {!token ? (
+          <>
+            <Link to="/login" style={linkStyle}>Connexion</Link>
+            <Link to="/register" style={linkStyle}>Inscription</Link>
+          </>
+        ) : (
+          <button
+            onClick={logout}
+            style={{
+              padding: '6px 12px',
+              backgroundColor: '#D32F2F',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}
+          >
+            Déconnexion
+          </button>
+        )}
+      </div>
     </nav>
   );
 }
+
+const linkStyle = {
+  marginRight: '15px',
+  textDecoration: 'none',
+  color: '#333',
+  fontWeight: 'bold',
+  fontSize: '16px'
+};
