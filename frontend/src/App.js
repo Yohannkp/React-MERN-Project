@@ -11,8 +11,18 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 function App() {
+  // Configuration du basename selon l'environnement
+  const getBasename = () => {
+    // GitHub Pages utilise /React-MERN-Project
+    if (window.location.hostname === 'yohannkp.github.io') {
+      return '/React-MERN-Project';
+    }
+    // Codespaces et développement local utilisent la racine
+    return '/';
+  };
+
   return (
-    <Router basename="/React-MERN-Project">
+    <Router basename={getBasename()}>
       <Navbar />
       <BackendAlert />
       <Routes>
