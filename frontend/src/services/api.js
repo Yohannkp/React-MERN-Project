@@ -2,26 +2,23 @@ import axios from 'axios';
 
 // Configuration de l'URL de base de l'API
 const getBaseURL = () => {
-  // Si une variable d'environnement est définie, l'utiliser
+  // Si une variable d'environnement est définie, l'utiliser en priorité
   if (process.env.REACT_APP_API_URL) {
+    console.log('✅ Utilisation de REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
     return process.env.REACT_APP_API_URL;
   }
   
   // Si c'est en production sur GitHub Pages
   if (window.location.hostname === 'yohannkp.github.io') {
-    // ⚠️ IMPORTANT: Remplacez cette URL par votre vraie URL Codespaces !
-    // Exemple: 'https://abcd1234-5000.preview.app.github.dev/api'
-    
-    // Pour l'instant, nous affichons une erreur claire
-    console.error('🚨 BACKEND NON CONFIGURÉ !');
-    console.log('📋 Pour connecter votre backend :');
-    console.log('1. Créez un Codespace sur GitHub');
-    console.log('2. Démarrez le backend dans Codespaces');
-    console.log('3. Copiez l\'URL et remplacez dans api.js');
-    console.log('4. Redéployez le frontend');
-    
-    // URL temporaire qui va échouer (pour alerter l'utilisateur)
-    return 'https://CONFIGUREZ-VOTRE-BACKEND-CODESPACES.exemple.com/api';
+    // ✅ URL de votre backend Codespaces configurée
+    console.log('� Utilisation de l\'URL backend configurée');
+    return 'https://psychic-halibut-jpjvww5vx96h97v-5000.app.github.dev';
+  }
+  
+  // Si c'est dans GitHub Codespaces, utiliser l'URL de développement appropriée
+  if (window.location.hostname.includes('.github.dev') || window.location.hostname.includes('.app.github.dev')) {
+    console.log('🔧 Détection GitHub Codespaces, utilisation de l\'URL par défaut');
+    return 'https://psychic-halibut-jpjvww5vx96h97v-5000.app.github.dev';
   }
   
   // URL de développement local
