@@ -15,7 +15,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await API.post('/auth/register', form);
+      const res = await API.post('/api/auth/register', form);
       localStorage.setItem('token', res.data.token);
       navigate('/listings');
     } catch (err) {

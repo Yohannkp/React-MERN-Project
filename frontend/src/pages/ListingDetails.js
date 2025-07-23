@@ -10,7 +10,7 @@ export default function ListingDetails() {
   const isLoggedIn = !!localStorage.getItem('token');
 
   useEffect(() => {
-    API.get(`/listings/${id}`)
+    API.get(`/api/listings/${id}`)
       .then(res => setListing(res.data))
       .catch(err => {
         alert("Erreur lors du chargement.");
@@ -21,7 +21,7 @@ export default function ListingDetails() {
   const handleDelete = async () => {
     if (!window.confirm("Supprimer cette annonce ?")) return;
     try {
-      await API.delete(`/listings/${id}`);
+      await API.delete(`/api/listings/${id}`);
       navigate('/listings');
     } catch (err) {
       alert("Erreur lors de la suppression.");

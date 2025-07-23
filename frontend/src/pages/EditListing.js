@@ -14,7 +14,7 @@ export default function EditListing() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get(`/listings/${id}`)
+    API.get(`/api/listings/${id}`)
       .then(res => {
         const { title, description, price, category } = res.data;
         setForm({ title, description, price, category });
@@ -33,7 +33,7 @@ export default function EditListing() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await API.put(`/listings/${id}`, form);
+      await API.put(`/api/listings/${id}`, form);
       navigate('/listings');
     } catch (err) {
       alert("Erreur lors de la mise à jour.");

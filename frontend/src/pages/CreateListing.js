@@ -19,7 +19,7 @@ export default function CreateListing() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await API.post('/listings', form);
+      await API.post('/api/listings', form);
       navigate('/listings');
     } catch (err) {
       alert("Erreur lors de la création.");

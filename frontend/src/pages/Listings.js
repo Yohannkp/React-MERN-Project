@@ -10,7 +10,7 @@ export default function Listings() {
 
   const fetchListings = async () => {
     try {
-      const res = await API.get('/listings');
+      const res = await API.get('/api/listings');
       setListings(res.data);
     } catch (err) {
       console.error('Erreur chargement des annonces', err);
@@ -20,7 +20,7 @@ export default function Listings() {
   const handleDelete = async (id) => {
     if (!window.confirm('Supprimer cette annonce ?')) return;
     try {
-      await API.delete(`/listings/${id}`);
+      await API.delete(`/api/listings/${id}`);
       fetchListings();
     } catch (err) {
       alert("Erreur lors de la suppression.");
