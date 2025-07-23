@@ -11,7 +11,7 @@ import Register from './pages/Register';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/React-MERN-Project">
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/listings" />} />
