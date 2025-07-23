@@ -22,7 +22,7 @@ const getBaseURL = () => {
   }
   
   // URL de développement local
-  return 'http://localhost:5000/api';
+  return 'http://localhost:5000';
 };
 
 const API = axios.create({
