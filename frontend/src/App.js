@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
+import BackendAlert from './components/BackendAlert';
 import Listings from './pages/Listings';
 import ListingDetails from './pages/ListingDetails';
 import CreateListing from './pages/CreateListing';
@@ -13,6 +14,7 @@ function App() {
   return (
     <Router basename="/React-MERN-Project">
       <Navbar />
+      <BackendAlert />
       <Routes>
         <Route path="/" element={<Navigate to="/listings" />} />
         <Route path="/listings" element={<Listings />} />
