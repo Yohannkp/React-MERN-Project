@@ -23,3 +23,5 @@ pnpm-debug.log*
 .idea/
 *.sublime-workspace
 *.sublime-project
+# Dépendances, à tous les niveaux du dépôt
+node_modules/
