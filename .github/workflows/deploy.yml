@@ -55,6 +55,9 @@ jobs:
     needs: [test-backend, test-frontend]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    # Le jeton par défaut est en lecture seule : la publication pousse sur la branche gh-pages.
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
 
